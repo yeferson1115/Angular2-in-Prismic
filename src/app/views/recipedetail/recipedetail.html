@@ -1,0 +1,54 @@
+
+<div *ngFor="let recipe of _recipe">
+  <div class="cont_posicion">
+       	<div class="contents">
+			<div class="main-interna">
+				<div class="ct-ft-interna wd-pr">
+					<img src="{{recipe.ImageUrl}}" />
+				</div>
+				<div class="ct-if-interna wd-pr">
+					<h2 class="title-main">Recetas Carulla</h2>
+					<h3 class="name-pro">{{recipe.Title}}</h3>
+					<p class="categoria"></p>
+					<p>{{recipe.Magazine}}</p>
+					<p class="tp-receta">Tipo de receta <span>{{recipe.TypeRecipe}}</span></p>
+					<p></p>
+          <div class="btn-vl">
+						<a href="" onclick="history.back()"><span class="fa fa-caret-left"></span> Volver al Menú</a>
+					</div>
+				  <div class="ct-td">
+						<p><span class="text-b"><span class="fa fa-fire"></span><b> Dificultad:</b></span>{{recipe.Difficulty}}</p>
+            <p><span class="text-b"><span class="fa fa-clock-o"></span> <b>Tiempo:</b> </span>{{recipe.Time}} </p>
+					</div> 
+			</div>
+		</div>
+			<div class="ps-interna">
+				<hr class="line-dv">
+				<h2 class="title-pp"><span class="fa fa-book"></span> Procedimiento / Paso a paso e Ingredientes</h2>
+				<div class="container-col">
+
+					<div class="col-main">
+						<div class="group-main">
+							<h3><span class="fa fa-building-o"></span> Procedimiento</h3>
+							<ol>
+								<li *ngFor="let proces of recipe.Process">{{proces.text}}</li>
+								
+							</ol>
+						</div>
+					</div>
+
+					<div class="col-main">
+						<div class="group-main">
+							<h3><span class="fa fa-cutlery"></span> Ingredientes para cinco personas</h3>
+							<ol>
+								<li *ngFor="let ingredient of recipe.Ingredients">{{ingredient.text}}</li>
+								
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>	
+  </div>
+ 
+

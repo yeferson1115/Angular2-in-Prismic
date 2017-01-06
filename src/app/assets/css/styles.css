@@ -1,0 +1,30 @@
+.cont-recipes{
+    width: 100%;
+    display: inline-block;
+    padding: 0;
+}
+.cont-recipes li{
+       width: 20%;    
+    margin-right: 35px;
+    border: 1px solid #8EC549;
+    border-radius: 5px;
+    padding: 35px;
+    float: left;
+    list-style: none;
+}
+.cont-recipes li a img{
+    max-width: 100%;
+}
+.aside{
+float: left;
+    margin-bottom: 60px;
+    width: 390px;
+    clear: both;
+}
+.container-ppal {
+    float: left;
+    width: 720px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    min-height: 1200px;
+}

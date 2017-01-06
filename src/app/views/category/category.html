@@ -1,0 +1,84 @@
+<div class="aside">
+  <div class="social">
+	            <h5>Síguenos</h5>
+	            <div class="facebook"> 
+	              <a target="_blank" href="http://www.facebook.com/SupermercadosCarulla">Facebook</a> 
+	            </div>
+	            <div class="twitter"> 
+	              	<a target="_blank" href="http://www.twitter.com/@PlaceresCarulla">Twitter</a> 
+	            </div>
+	            <div class="pinterest"> 
+	            	<a target="_blank" href="http://pinterest.com/placerescarulla/">Pinterest</a> 
+	            </div>
+	            <div class="instagram"> 
+	            	<a target="_blank" href="http://instagram.com/placerescarulla">Instagram</a> 
+	            </div>
+	            <div class="youtube"> 
+	              	<a target="_blank" href="https://www.youtube.com/user/supermercadoscarulla">Youtube</a>
+	            </div>
+            	<div>
+       				<a target="_blank" href="http://www.vivircarulla.com/#home"><img src="http://imgcarulla.exito.com/images/soluciones/home/img/blog.png"></a>
+        		</div>
+         	</div>		
+        	<!-- Cierre Redes sociales -->
+          <h3>Soluciones Carulla</h3>
+          <ul class="sidenav">
+            <nav class="menu">
+              <input type="checkbox" id="togglemenu" checked />
+                <label for="togglemenu" class="togglemenu">Recetas<i class="ico-ArrowDowngreen"></i></label>
+                <ul *ngFor="let category of categories">
+                    <li *ngIf="category.type == 'categoria' ">
+                      <a [routerLink]="[linkResolver(category)]">{{category.getText('categoria.categoria')}}</a>
+                    </li>
+                </ul>
+            </nav>
+          </ul>
+           <div class="sidebar">
+              <div class="note">
+                <div class="bt_beneficios"> <a href="http://www.carulla.com/supercliente" target="_blank" title="Beneficios SuperCliente">Beneficios SuperCliente</a> </div>
+                <p> Descubre como disfrutar de tus puntos invirtiéndolos en grandes beneficios. </p>
+              </div>
+              <div class="note">
+                <div class="bt_domicilios"> <a href="/soluciones/menu-domicilios/">Beneficios SuperCliente</a> </div>
+                <p> Mira las recetas de lunes a viernes, <span>pide los ingredientes </span>de la receta
+                  de tu elección y te los llevaremos a tu casa. </p>
+              </div>
+              <div class="note">
+                <div class="bt_promesas"> <a href="http://imgcarulla.exito.com/images/soluciones/descargas/promesas.pdf">
+                 <img src="../../app/assets/images/Logo-Promesas-Carulla.png">
+                  </a>
+                </div>
+              </div>
+              <div class="note">
+                <div class="bt_verde"> <a href="http://www.facebook.com/SupermercadosCarulla?sk=app_112066695552458">Carulla
+                  Verde</a> </div>
+                <p> En Carulla queremos fomentar la conservación del medio ambiente y los recursos naturales. </p>
+              </div>
+              <div class="note">
+                <div class="bt_fidelizacion"> <a href="http://imgcarulla.exito.com/images/soluciones/descargas/fidelizacion.pdf">
+                 <img src="../../app/assets/images/Logo-Fidelización-Carulla.png">
+                  </a>
+              </div>
+              </div>
+            </div>
+           
+  
+</div>
+<div *ngIf="documents" class="container-ppal">
+  <div class="recetas">
+    <div class="titular_seccion">Recetas Carulla</div>
+      <div style="position: relative; float: left;">
+        <section id="page_1_Bebidasycocteles" >
+         <div class="cont-recetas" *ngFor="let document of documents">
+          <div class="receta"   *ngIf="document.type == 'recetas' ">
+            <h3>              
+              <a [routerLink]="[linkResolver(document)]"><img width="180" height="110" src="{{document.getImage('recetas.image').url}}"/> 
+              {{document.getText('recetas.tittle')}}<b></b></a>
+            </h3>
+          </div>
+        </div>
+       </section>
+      </div>
+    </div>
+  </div>
+

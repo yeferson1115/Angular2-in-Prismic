@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carulla</title>
+    <base href="/">
+    <style>
+	header{	   
+    background: url(slideSample2.png) no-repeat scroll center 0 #000000;
+    border-bottom: 10px solid #696901;
+    height: 249px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 45px;
+	}
+  body{
+    margin: 0;
+  }
+.footer {
+        background-color: #000;
+    color: #8F8F8F;
+    font-weight: lighter;
+    margin-top: 15px;
+    min-width: 1170px;
+    min-height: 165px;
+    margin-top: 30px;
+}
+	</style>
+<script>
+function autofitIframe(id){
+if (!window.opera && document.all && document.getElementById){
+id.style.height=id.contentWindow.document.body.scrollHeight;
+} else if(document.getElementById) {
+id.style.height=id.contentDocument.body.scrollHeight+"px";
+}
+}
+</script>
+  </head>
+  <body>
+  <header>Aqui va header de carulla</header>
+  <section class="cuerpo">
+      <h1>Pagina principal</h1>
+      <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="recetas.html">Recetas</a></li>
+      </ul>
+	</section>
+   <footer class="footer">
+   
+   </footer>
+
+  </body>
+</html>

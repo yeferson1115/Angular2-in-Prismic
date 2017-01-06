@@ -1,0 +1,137 @@
+<div id="contenido-ppl">
+<div class="aside">
+  <div class="social">
+	            <h5>Síguenos</h5>
+	            <div class="facebook"> 
+	              <a target="_blank" href="http://www.facebook.com/SupermercadosCarulla">Facebook</a> 
+	            </div>
+	            <div class="twitter"> 
+	              	<a target="_blank" href="http://www.twitter.com/@PlaceresCarulla">Twitter</a> 
+	            </div>
+	            <div class="pinterest"> 
+	            	<a target="_blank" href="http://pinterest.com/placerescarulla/">Pinterest</a> 
+	            </div>
+	            <div class="instagram"> 
+	            	<a target="_blank" href="http://instagram.com/placerescarulla">Instagram</a> 
+	            </div>
+	            <div class="youtube"> 
+	              	<a target="_blank" href="https://www.youtube.com/user/supermercadoscarulla">Youtube</a>
+	            </div>
+            	<div>
+       				<a target="_blank" href="http://www.vivircarulla.com/#home"><img src="http://imgcarulla.exito.com/images/soluciones/home/img/blog.png"></a>
+        		</div>
+         	</div>		
+        	<!-- Cierre Redes sociales -->
+          <h3>Soluciones Carulla</h3>
+          <ul class="sidenav">
+            <li><a href="#" onclick="parent.soluciones();">Inicio</a></li>
+            <nav class="menu">
+              <input type="checkbox" id="togglemenu" checked />
+                <label for="togglemenu" class="togglemenu">Recetas<i class="ico-ArrowDowngreen"></i></label>
+                <ul >
+                  <li>
+                    <a [routerLink]="['']">Todas</a>
+                  </li>
+                    <li *ngFor="let category of _categories">
+                      <a [routerLink]="['/recetas', category.Title, category.Id]">{{category.Title}}</a>
+                    </li>
+                </ul>
+                
+            </nav>
+            <li><a href="#" onclick="parent.minutoCarulla();">Minuto carulla</a></li>
+              <li><a href="#" onclick="parent.escuelaCosina();">Escuela de cocina</a></li>
+              <li><a href="#" onclick="parent.revistaCarulla();">Revista Carulla</a></li>
+              <li style="font-size:18px;"><a href="#" onclick="parent.recetasdelMundo();">Recetas del mundo</a></li>
+              <li><a href="#" onclick="parent.tipsCulinarios();">Tips culinarios</a></li>
+          </ul>
+           <div class="sidebar">
+              <div class="note">
+                <div class="bt_beneficios"> <a href="http://www.carulla.com/supercliente" target="_blank" title="Beneficios SuperCliente">Beneficios SuperCliente</a> </div>
+                <p> Descubre como disfrutar de tus puntos invirtiéndolos en grandes beneficios. </p>
+              </div>
+              <div class="note">
+                <div class="bt_domicilios"> <a href="#" onclick="parent.domicilios();">Beneficios SuperCliente</a> </div>
+                <p> Mira las recetas de lunes a viernes, <span>pide los ingredientes </span>de la receta
+                  de tu elección y te los llevaremos a tu casa. </p>
+              </div>
+              <div class="note">
+                <div class="bt_promesas"> <a href="#" onclick="parent.promesasCarulla();">
+                 <img src="../../src/app/assets/images/Logo-Promesas-Carulla.png">
+                  </a>
+                </div>
+              </div>
+              <div class="note">
+                <div class="bt_verde"> <a href="http://www.facebook.com/SupermercadosCarulla?sk=app_112066695552458"  target="_blank">Carulla
+                  Verde</a> </div>
+                <p> En Carulla queremos fomentar la conservación del medio ambiente y los recursos naturales. </p>
+              </div>
+
+              <div class="note">
+                <div class="bt_fidelizacion"> <a href="#" onclick="parent.fidelizacion();">
+                 <img src="../../src/app/assets/images/Logo-Fidelización-Carulla.png">
+                  </a>
+              </div>
+              </div>
+            </div>  
+      </div>
+<div class="container-ppal">
+  <div class="ipt-bs">
+  <input #terms (keyup.enter)="searchterms(terms.value)" placeholder="Buscar"/>
+  <button  (click)="searchterms(terms.value)"><span class="fa fa-search"></span></button>
+  </div>
+              <div class="recetas">
+              <div class="titular_seccion">Recetas Carulla</div>
+              <div style="position: relative; float: left;" class="ct-main"> 
+                <!-- INICIO RECETAS -->
+                <div id="contenedorrecetas" class="items_recetas" >
+	                <section id="page_1_Bebidasycocteles"> 
+                    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+		                    <div *ngIf="!_nameCategory" class="titular_subseccion">Todas</div>
+                        <div *ngIf="_nameCategory" class="titular_subseccion">{{_nameCategory}}</div>
+		                    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+		                                          
+                        <div *ngFor="let recipe of _recipes" class="receta">
+			                    <h3 class="mt-recetas"><a [routerLink]="['/recipedetail', recipe.Id]" >
+                            <div class="mt-image">
+                              <img  src="{{recipe.ImageUrl}}"/>
+                              </div>{{recipe.Title}}<b></b></a></h3>
+			                      <p>{{recipe.ShortDescription}}</p>
+		                  	</div>
+                        <div *ngIf="_recipes ==''" class="not-results" >
+                             <img src="../../src/app/assets/images/resultado-carulla.png" />
+                        </div>
+                        <div *ngIf="_preloader">
+                          <div class='uil-cube-css' style='-webkit-transform:scale(0.6)'><div></div><div></div><div></div><div></div></div>
+                        </div>
+                  </section>
+              </div>
+            </div>           
+            <div *ngIf="!_idCategory && _pages != 0" class="paginador">              
+	        	<div class="ct-paginador">
+		            <li class="unic-p"><a href="#"><span class="fa fa-caret-left"></span></a></li>		           
+		            <li *ngFor="let page of _pages; let i = index"><a [routerLinkActive]="['active-paginador']" [routerLink]="['/page', page+1]">{{page+1}}</a></li>
+		            
+		            <li class="unic-p"><a href="#"><span class="fa fa-caret-right"></span></a></li>
+	            </div>
+			    </div>
+
+          <div *ngIf="_idCategory && _pages != 0" class="paginador">              
+	        	<div class="ct-paginador">
+		            <li class="unic-p"><a href="#"><span class="fa fa-caret-left"></span></a></li>		           
+		            <li *ngFor="let page of _pages; let i = index"><a [routerLinkActive]="['active-paginador']" [routerLink]="['/recetas', _idCategory, page+1]" >{{page+1}}</a></li>
+		            
+		            <li class="unic-p"><a href="#"><span class="fa fa-caret-right"></span></a></li>
+	            </div>
+			    </div>
+          </div>
+          <div class="clearfix"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+parent.AdjustIframeHeight(document.getElementById("contenido-ppl").scrollHeight);
+</script>
+
+
+
